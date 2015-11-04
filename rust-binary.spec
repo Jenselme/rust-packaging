@@ -1,4 +1,4 @@
-%global rust_version 1.3.0
+%global rust_version 1.4.0
 %global staticprefix rust-%{rust_version}-x86_64-unknown-linux-gnu
 
 %global debug_package %{nil}
@@ -120,6 +120,9 @@ find %{buildroot} -type f -size 0 | xargs rm -f
 
 
 %changelog
+* Wed Nov 4 2015 Julien Enselme <jujens@jujens.eu> - 1.4.0-1
+- Update to 1.4.0
+
 * Sun Oct 18 2015 Julien Enselme <jujens@jujens.eu> - 1.3.0-1
 - Uptade to 1.3.0
 
