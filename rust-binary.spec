@@ -1,7 +1,9 @@
-%global rust_version 1.4.0
+%global rust_version 1.5.0
 %global staticprefix rust-%{rust_version}-x86_64-unknown-linux-gnu
 
 %global debug_package %{nil}
+# Don't strip binaries
+%global __os_install_post %{nil}
 # Do not check any files in docdir for requires
 %global __requires_exclude_from ^%{_bindir}/.*$
 
@@ -95,13 +97,13 @@ find %{buildroot} -type f -size 0 | xargs rm -f
 %{_bindir}/rust-gdb
 %{_libdir}/rustlib/
 %{_libdir}/lib*.so
-%{_mandir}/man1/rust*.gz
+%{_mandir}/man1/rust*
 
 
 %files -n cargo-binary
 %license LICENSE-APACHE LICENSE-MIT
 %{_bindir}/cargo
-%{_mandir}/man1/cargo*.gz
+%{_mandir}/man1/cargo*
 %dir %{_datadir}/zsh
 %dir %{_datadir}/zsh/site-functions
 %{_datadir}/zsh/site-functions/_cargo
@@ -120,6 +122,9 @@ find %{buildroot} -type f -size 0 | xargs rm -f
 
 
 %changelog
+* Sat Jan 16 2016 Julien Enselme <jujens@jujens.eu> - 1.5.0-1
+- Update to 1.5.0
+
 * Wed Nov 4 2015 Julien Enselme <jujens@jujens.eu> - 1.4.0-1
 - Update to 1.4.0
 
